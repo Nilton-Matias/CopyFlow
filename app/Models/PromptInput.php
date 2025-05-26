@@ -14,6 +14,9 @@ class PromptInput extends Model
         'goal',
         'platform',
         'tone',
+        'contact',
+        'email',
+        'location',
         'language'
     ];
 

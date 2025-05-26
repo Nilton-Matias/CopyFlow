@@ -31,6 +31,9 @@ class PromptController extends Controller
                 'goal' => 'required|string',
                 'platform' => 'required|string',
                 'tone' => 'required|string',
+                'contact' => 'nullable|string',
+                'email' => 'nullable|string',
+                'location' => 'nullable|string',
                 'language' => 'nullable|string',
             ], [
                 'product_name.required' => 'O campo nome do producto é obrigatório.',

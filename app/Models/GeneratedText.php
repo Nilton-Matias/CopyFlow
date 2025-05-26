@@ -13,6 +13,9 @@ class GeneratedText extends Model
         'generated_text',
     ];
 
+    protected $with = ['user']; // Isso já traz os dados do user junto com GeneratedText
+
+
     public function promptInput()
     {
         return $this->belongsTo(PromptInput::class);
