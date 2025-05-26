@@ -46,4 +46,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function prompt_inputs()
+    {
+        return $this->hasMany(PromptInput::class);
+    }
+
+    public function generated_texts()
+    {
+        return $this->hasMany(GeneratedText::class);
+    }
 }

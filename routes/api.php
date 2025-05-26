@@ -1,10 +1,9 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\PromptController;
+use App\Http\Controllers\Api\TextGenerationController;
 use Illuminate\Support\Facades\Route;
-
-
+use App\Http\Controllers\Api\AuthController;
 
 Route::prefix('authentication')->group(function () {
     /**
@@ -17,7 +16,25 @@ Route::prefix('authentication')->group(function () {
      * Rotas privadas | com autenticacao | Private routes | with authentication
      */
     Route::middleware('auth:sanctum')->group(function () {
+        /**
+         * Rotas de autenticacao | Authentication routes
+         */
         Route::get('/me', [AuthController::class, 'me']);
+
+        /**
+         * Rotas de prompts | Prompt routes
+         */
+        Route::get('/my-inputs', [PromptController::class, 'myInputs']);
+        Route::post('/prompt-input', [PromptController::class, 'store']);
+
+        /**
+         * Rota de geração de texto
+         */
+        Route::post('/generate', [TextGenerationController::class, 'generate']);
+
+        /**
+         * Rotas de logout | Logout routes
+         */
         Route::post('/logout', [AuthController::class, 'logout']);
     });
 });
