@@ -6,7 +6,7 @@
 
 ### Description
 
-Copyflow is an application that receives user input in Portuguese and generates personalized marketing texts, ready to be sent directly to Facebook, Instagram, or WhatsApp pages.  
+Copyflow is an application that receives user input and generates personalized marketing texts, ready to be sent directly to Facebook, Instagram, or WhatsApp pages.  
 It integrates with the OpenRouter API (for chat/text generation) and the Meta API (for publishing on social networks).
 
 ### Main Features
@@ -80,7 +80,7 @@ Project under development — stay tuned for updates!
 
 ### Descrição
 
-Copyflow é uma aplicação que recebe informações inseridas pelo usuário em português e gera textos de marketing personalizados, prontos para serem enviados diretamente para páginas do Facebook, Instagram ou WhatsApp.  
+Copyflow é uma aplicação que recebe informações inseridas pelo usuário e gera textos de marketing personalizados, prontos para serem enviados diretamente para páginas do Facebook, Instagram ou WhatsApp.  
 Integra a API do OpenRouter (para chat/geração de texto) e a API da Meta (para publicação nas redes sociais).
 
 ### Funcionalidades Principais
