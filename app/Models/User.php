@@ -56,4 +56,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(GeneratedText::class);
     }
+
+    public function history_generated_texts()
+    {
+        return $this->hasMany(HistoryGenerated::class);
+    }
 }

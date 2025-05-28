@@ -25,4 +25,9 @@ class GeneratedText extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function historyGeneratedTexts()
+    {
+        return $this->hasMany(HistoryGenerated::class);
+    }
 }

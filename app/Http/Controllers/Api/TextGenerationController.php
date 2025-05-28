@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\GeneratedText;
+use App\Models\HistoryGenerated;
 use App\Models\PromptInput;
 use App\Services\OpenAIService;
 use Exception;
@@ -64,6 +65,11 @@ class TextGenerationController extends Controller
                 'prompt_input_id' => $promptInput->id,
                 'prompt' => $prompt,
                 'generated_text' => $generated
+            ]);
+
+            HistoryGenerated::create([
+                'user_id' => Auth::id(),
+                'generated_text_id' => $record->id
             ]);
 
             return response()->json([

@@ -18,7 +18,7 @@ class OpenAIService
     public function __construct()
     {
         $this->apiKey = env('OPENAI_API_KEY');
-        $this->baseUrl = env('OPENAI_API_BASE_URL', 'https://api.openai.com/v1/chat/completions');
+        $this->baseUrl = env('OPENAI_API_BASE_URL', 'https://openrouter.ai/api/v1/chat/completions');
     }
 
     public function generate(string $prompt): string

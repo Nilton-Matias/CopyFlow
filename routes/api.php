@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\HistoryGeneratedController;
 use App\Http\Controllers\Api\PromptController;
 use App\Http\Controllers\Api\TextGenerationController;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,11 @@ Route::prefix('authentication')->group(function () {
          * Rota de geração de texto
          */
         Route::post('/generate', [TextGenerationController::class, 'generate']);
+
+        /**
+         * rotas de histórico
+         */
+        Route::get('/history', [HistoryGeneratedController::class, 'history']);
 
         /**
          * Rotas de logout | Logout routes
