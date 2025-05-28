@@ -4,7 +4,7 @@ Copyflow é uma aplicação que recebe dados inseridos pelo usuário e gera text
 
 ## ✨ Funcionalidades Principais
 
-- Recebe informações em português: nome do produto, benefícios, público-alvo, objetivo, plataforma, tom da mensagem, e-mail de contato e localização.
+- Recebe informações: nome do produto, benefícios, público-alvo, objetivo, plataforma, tom da mensagem, e-mail de contato e localização.
 - Gera textos de marketing otimizados para as principais redes sociais.
 - Permite envio direto dos textos gerados para Facebook, Instagram ou WhatsApp.
 
