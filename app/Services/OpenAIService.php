@@ -25,35 +25,27 @@ class OpenAIService
     {
         try {
             /**
-         * Usa a facade Http para enviar uma requisão POST à API
-         */
-        $response = Http::withHeaders([
-            'Authorization' => 'Bearer ' . $this->apiKey,
-            'Content-Type' => 'application/json',
-        ])->post($this->baseUrl, [
-            'model' => 'openai/gpt-3.5-turbo', /**Define o modelo de ia que será usado */
-            'messages' => [
-                ['role' => 'user', 'content' => $prompt] /**Envia uma estrutura do tipo chat */
-            ],
-            'max_tokens' => 500,
-        ]);
-
-        if ($response->successful()) {
-            return $response->json('choices.0.message.content', 'Texto não pode ser gerado.');
-        } else {
-            return response()->json([
-                'status' => $response->status(),
-                'message' => 'Ocorreu um erro ao gerar texto. Tente novamente mais tarde.',
-                'body' => $response->body()
+             * Usa a facade Http para enviar uma requisão POST à API
+             */
+            $response = Http::withHeaders([
+                'Authorization' => 'Bearer ' . $this->apiKey,
+                'Content-Type' => 'application/json',
+            ])->post($this->baseUrl, [
+                'model' => 'openai/gpt-3.5-turbo',
+                'messages' => [
+                    ['role' => 'user', 'content' => $prompt]
+                ],
+                'max_tokens' => 500,
             ]);
-        }
 
+            if ($response->successful()) {
+                return $response->json('choices.0.message.content', 'Texto não pode ser gerado.');
+            } else {
+                // Retorna mensagem de erro amigável como string
+                return 'Ocorreu um erro ao gerar texto. Tente novamente mais tarde. Status: ' . $response->status();
+            }
         } catch (Exception $e) {
-            return response()->json([
-                'error' => 'Erro de sistema ao gerar o texto. Verifique a conexão ou tente mais tarde',
-                'message' => $e->getMessage(),
-                'trace' => $e->getTraceAsString()
-            ]);
+            return 'Erro de sistema ao gerar o texto. Detalhe: ' . $e->getMessage();
         }
     }
 }

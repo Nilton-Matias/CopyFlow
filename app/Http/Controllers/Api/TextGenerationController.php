@@ -67,11 +67,6 @@ class TextGenerationController extends Controller
                 'generated_text' => $generated
             ]);
 
-            HistoryGenerated::create([
-                'user_id' => Auth::id(),
-                'generated_text_id' => $record->id
-            ]);
-
             return response()->json([
                 'message' => 'Texto gerado com sucesso',
                 'data' => [

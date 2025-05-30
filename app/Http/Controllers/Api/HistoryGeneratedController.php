@@ -29,11 +29,13 @@ class HistoryGeneratedController extends Controller
                     ];
                 })
             ]);
+
         } catch (ModelNotFoundException $e) {
             return response()->json([
                 'message' => $e->getMessage(),
                 'error' => 'texto não encontrado ou não pertence ao usuário'
             ], 404);
+            
         } catch (Exception $e) {
             return response()->json([
                 'error' => 'Erro de servidor',
