@@ -56,17 +56,74 @@ This Laravel-based backend receives input from the user, communicates with the O
    php artisan serve
 
 
-###🧪 API Usage
-Endpoints will be documented using Swagger or Postman collection (coming soon).
+## 🧪 API Usage
 
-###🤝 Contributing
+All endpoints are prefixed with `/api/authentication`.
+
+### 1 . Register
+
+```bash
+POST /api/authentication/register
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "secret",
+  "password_confirmation": "secret"
+}
+
+
+### 2 . Login → get your token
+
+```bash
+POST /api/authentication/login
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "secret"
+}
+
+### A successful response returns:
+```bash
+{
+	"message": "Usuário logado com sucesso.",
+	"user": {
+		"id": 1,
+		"name": "Nilton Matias Nhanteme",
+		"email": "niltonmatias.dev@outlook.com",
+		"email_verified_at": null,
+		"created_at": "2025-05-25T18:46:14.000000Z",
+		"updated_at": "2025-05-25T18:46:14.000000Z"
+	},
+	"token": "4|sEDXy34CFjCpWzWj4Au9PNUm7DYfkZRHugiVjBY1f5de4864"
+}
+
+## 3. Authenticated routes
+| Method | Path            | Purpose                                 |
+| ------ | --------------- | --------------------------------------- |
+| GET    | `/me`           | Current user profile                    |
+| GET    | `/my-inputs`    | List prompts you have saved             |
+| POST   | `/prompt-input` | Save a new prompt body                  |
+| POST   | `/generate`     | Ask OpenRouter to create marketing text |
+| GET    | `/history`      | History of all texts you generated      |
+| POST   | `/logout`       | Revoke the current token                |
+
+
+### Example — fetch profile
+```bash
+curl -H "Authorization: Bearer <token>" \
+     http://localhost:8000/api/authentication/me
+
+### 🤝 Contributing
 Contributions are welcome!
 Open an issue or submit a pull request if you'd like to contribute or report a bug.
 
-###📝 License
+### 📝 License
 This project is licensed under the MIT License.
 
-###📬 Contact
+### 📬 Contact
 Email: niltonmatias.dev@outlook.com
 
-##Status: Backend in development – Stay tuned for updates!
+## Status: Backend in development – Stay tuned for updates!
